@@ -1,0 +1,33 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input DownloadInput {
+  format: Format!
+  quality: Quality!
+  url: String!
+}
+
+enum Format {
+  mp3
+  mp4
+}
+
+type Mutation {
+  downloadingResourcer(inputData: DownloadInput!): String!
+}
+
+enum Quality {
+  bestMusic
+  fullHDVideo
+  hdVideo
+  highMusic
+  lowMusic
+  lowVideo
+  sdVideo
+  standardVideo
+}
+
+type Query {
+  hello: String!
+}

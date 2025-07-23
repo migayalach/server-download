@@ -1,26 +1,16 @@
-import { Injectable } from '@nestjs/common';
-import { CreateDownloadInput } from './dto/create-download.input';
-import { UpdateDownloadInput } from './dto/update-download.input';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { DownloadInput } from './dto/InputData.dto';
 
 @Injectable()
 export class DownloadService {
-  create(createDownloadInput: CreateDownloadInput) {
-    return 'This action adds a new download';
-  }
-
-  findAll() {
-    return `This action returns all download`;
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} download`;
-  }
-
-  update(id: number, updateDownloadInput: UpdateDownloadInput) {
-    return `This action updates a #${id} download`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} download`;
+  public async downloading(inputData: DownloadInput) {
+    try {
+      return `This action returns a item download`;
+    } catch (error) {
+      throw new HttpException(
+        'Error downloading the file.',
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
   }
 }
